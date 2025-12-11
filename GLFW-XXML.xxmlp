@@ -1,0 +1,24 @@
+[Project]
+ActiveConfig = Debug
+ActiveRunConfig = Default
+Name = GLFW-XXML
+OutputDir = build
+Type = Library
+Version = 0.1.0
+
+[IncludePaths]
+src
+
+[Build.Debug]
+DebugInfo = true
+Optimization = O0
+OutputDir = build/debug
+
+[Build.Release]
+DebugInfo = false
+Optimization = O2
+OutputDir = build/release
+
+[Run.Default]
+PauseOnExit = true
+WorkingDir = .
