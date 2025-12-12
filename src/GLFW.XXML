@@ -1354,26 +1354,25 @@ Method <_glfwSetScrollCallback> Returns NativeType<"ptr">^ Parameters (
     Constructor = default;
 
     // Check if a button is pressed
-    // Note: Using integer comparison with enum - produces warning but works
     Method <isButtonPressed> Returns Bool^ Parameters (
         Parameter <button> Types GamepadButton^
     ) -> {
         Instantiate Integer^ As <state> = Integer::Constructor(0);
-        If (button == 0) -> { Set state = button0; }
-        If (button == 1) -> { Set state = button1; }
-        If (button == 2) -> { Set state = button2; }
-        If (button == 3) -> { Set state = button3; }
-        If (button == 4) -> { Set state = button4; }
-        If (button == 5) -> { Set state = button5; }
-        If (button == 6) -> { Set state = button6; }
-        If (button == 7) -> { Set state = button7; }
-        If (button == 8) -> { Set state = button8; }
-        If (button == 9) -> { Set state = button9; }
-        If (button == 10) -> { Set state = button10; }
-        If (button == 11) -> { Set state = button11; }
-        If (button == 12) -> { Set state = button12; }
-        If (button == 13) -> { Set state = button13; }
-        If (button == 14) -> { Set state = button14; }
+        If (button == GamepadButton::A) -> { Set state = button0; }
+        If (button == GamepadButton::B) -> { Set state = button1; }
+        If (button == GamepadButton::X) -> { Set state = button2; }
+        If (button == GamepadButton::Y) -> { Set state = button3; }
+        If (button == GamepadButton::LeftBumper) -> { Set state = button4; }
+        If (button == GamepadButton::RightBumper) -> { Set state = button5; }
+        If (button == GamepadButton::Back) -> { Set state = button6; }
+        If (button == GamepadButton::Start) -> { Set state = button7; }
+        If (button == GamepadButton::Guide) -> { Set state = button8; }
+        If (button == GamepadButton::LeftThumb) -> { Set state = button9; }
+        If (button == GamepadButton::RightThumb) -> { Set state = button10; }
+        If (button == GamepadButton::DPadUp) -> { Set state = button11; }
+        If (button == GamepadButton::DPadRight) -> { Set state = button12; }
+        If (button == GamepadButton::DPadDown) -> { Set state = button13; }
+        If (button == GamepadButton::DPadLeft) -> { Set state = button14; }
         If (state != 0) -> {
             Return Bool::Constructor(true);
         }
@@ -1381,15 +1380,14 @@ Method <_glfwSetScrollCallback> Returns NativeType<"ptr">^ Parameters (
     }
 
     // Get axis value (-1.0 to 1.0 for sticks, 0.0 to 1.0 for triggers)
-    // Note: Using integer comparison with enum - produces warning but works
     Method <getAxis> Returns NativeType<"float">^ Parameters (
         Parameter <axis> Types GamepadAxis^
     ) -> {
-        If (axis == 0) -> { Return axis0; }
-        If (axis == 1) -> { Return axis1; }
-        If (axis == 2) -> { Return axis2; }
-        If (axis == 3) -> { Return axis3; }
-        If (axis == 4) -> { Return axis4; }
+        If (axis == GamepadAxis::LeftX) -> { Return axis0; }
+        If (axis == GamepadAxis::LeftY) -> { Return axis1; }
+        If (axis == GamepadAxis::RightX) -> { Return axis2; }
+        If (axis == GamepadAxis::RightY) -> { Return axis3; }
+        If (axis == GamepadAxis::LeftTrigger) -> { Return axis4; }
         Return axis5;
     }
 
